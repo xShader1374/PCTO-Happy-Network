@@ -8,7 +8,7 @@
 ## Obbiettivo finale 2
   - Ogni film deve avere: ID_FILM, Nome, Trama, Data di pubblicazione, Categoria, tipo
   - Ogni serie tv deve avere: ID_SERIE_TV, Nome, Trama, Data di pubblicazione, Categoria, tipo, n_stagioni
-  - Stagioni contengono: ID_Stagione, episodi disponibili, id_serietv, nome
+  - Stagioni contengono: ID_Stagione, n_episodi, id_serietv, nome
   - Episodi contengono: ID_Episodio, titolo, descrizione, id_stagione
 
 ## Tecnologie usate:
