@@ -1,0 +1,12 @@
+::1 - - [20/Feb/2022:03:35:12 +0200] "GET / HTTP/1.1" 200 80458
+::1 - - [20/Feb/2022:03:35:20 +0200] "GET /phpmyadmin/ HTTP/1.1" 200 4778
+::1 - - [20/Feb/2022:03:35:34 +0200] "GET /phpmyadmin/ HTTP/1.1" 200 4777
+::1 - - [20/Feb/2022:03:35:39 +0200] "POST /phpmyadmin/index.php?route=/ HTTP/1.1" 302 20
+::1 - - [20/Feb/2022:03:35:39 +0200] "GET /phpmyadmin/index.php?route=/&route=%2F HTTP/1.1" 200 14729
+::1 - - [20/Feb/2022:03:35:39 +0200] "GET /phpmyadmin/themes/pmahomme/css/theme.css?v=5.1.3&nocache=206814880ltr&server=1 HTTP/1.1" 200 216144
+::1 - - [20/Feb/2022:03:35:40 +0200] "POST /phpmyadmin/index.php?route=/config/get HTTP/1.1" 200 1523
+::1 - - [20/Feb/2022:03:35:40 +0200] "POST /phpmyadmin/index.php?route=/navigation&ajax_request=1 HTTP/1.1" 200 2041
+::1 - - [20/Feb/2022:03:35:40 +0200] "POST /phpmyadmin/index.php?route=/config/get HTTP/1.1" 200 1612
+::1 - - [20/Feb/2022:03:35:40 +0200] "POST /phpmyadmin/index.php?route=/version-check HTTP/1.1" 200 48
+::1 - - [20/Feb/2022:03:35:41 +0200] "POST /phpmyadmin/index.php?route=/navigation&ajax_request=1 HTTP/1.1" 200 1540
+::1 - - [20/Feb/2022:03:35:41 +0200] "POST /phpmyadmin/index.php?route=/config/set HTTP/1.1" 200 1514
