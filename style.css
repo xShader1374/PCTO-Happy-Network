@@ -118,6 +118,7 @@ body {
 }
 .media-card{
     border: 2px solid var(--main-color);
+    backdrop-filter: blur(12px);
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -133,6 +134,7 @@ body {
     scale: 0.975;
     box-shadow: inset var(--main-color) 0px 0px 16px 0px;
     text-shadow: var(--main-color) 0px 0px 16px;
+    backdrop-filter: blur(4px);
     transition: all .15s;
 }
 .media-card:active {
