@@ -20,7 +20,7 @@ body {
 .Navbar-Container {
     border-color: var(--main-color);
     background-color: #2892b63b;
-    margin: 16px 32px;
+    margin: 16px 32px 0px 32px;
     border-width: 2px;
     border-style: solid;
     border-radius: 16px;
