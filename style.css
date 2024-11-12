@@ -113,7 +113,8 @@ body {
     height: -webkit-fill-available;
     width: -webkit-fill-available;
     gap: 8px;
-    overflow: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 .media-card{
     border: 2px solid var(--main-color);
