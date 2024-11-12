@@ -51,6 +51,7 @@ body {
 }
 
 .Navbar-Button:hover {
+    scale: 0.975;
     box-shadow: var(--main-color) 0px 0px 64px 0px;
     text-shadow: var(--main-color) 0px 0px 16px;
     transition: all .15s;
@@ -75,6 +76,15 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+}
+
+.unselectable {
+    user-drag: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 .Separator {
@@ -115,6 +125,18 @@ body {
     justify-content: center;
     align-items: stretch;
     max-width: 256px;
+    transition: all .15s;
+}
+.media-card:hover {
+    cursor: pointer;
+    scale: 0.975;
+    box-shadow: inset var(--main-color) 0px 0px 16px 0px;
+    text-shadow: var(--main-color) 0px 0px 16px;
+    transition: all .15s;
+}
+.media-card:active {
+    scale: 0.9;
+    transition: all .15s;
 }
 .media-title{
     text-align: center;
