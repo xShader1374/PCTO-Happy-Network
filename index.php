@@ -1,7 +1,25 @@
 <?php
     $site_name = "S&F";
-    $current_page_title_param = $_GET["p"];
+    //lettura url
+    //in base alla risorsa chiesta, carica risorsa richiesta oppure default oppure 404
+    $current_page_title_param = (isset($_GET["p"])) ? $_GET["p"] : "vuoto";
     $current_page_title = $site_name." - ".$current_page_title_param;
+
+    $titoli_disponibili = array(
+        ""                  => "Benvenuto",
+        "/homepage"         => "Benvenuto",
+        "/film"             => "Lista Film",
+        "/serie-tv"         => "Lista Serie TV",
+        "default"           => "Titolo default",
+    );
+
+    $contenuti_da_mostrare_sotto = array(
+        ""                  => "/homepage/index.php",
+        "/homepage"         => "/homepage/index.php",
+        "/film"             => "/homepage/film/index.php",
+        "/serie-tv"         => "/homepage/serie_tv/index.php",
+        "default"           => "404",
+    );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +28,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         <?php
+            //lettura url
+            $current_page_title = //se url sta in titoli_disponibili[key] allora = $titoli_disponibili[url] altrimenti $titoli_disponibili["default"]
             echo $current_page_title;
         ?>
     </title>
@@ -18,13 +38,13 @@
 </head>
 <body>
     <div class="Navbar-Container" id="Navbar-Container">
-        <form class="Navbar-Form" action="" method="GET">
-            <Button class="Navbar-Button" name="p" value="Esplora">Esplora</Button>
-        </form>
+
+            <a href="/" class="Navbar-Button">Esplora</Button>
+
         <p style="color: var(--main-color); margin: 0;padding: 0;">|</p>
-        <form class="Navbar-Form" action="" method="GET">
-            <Button class="Navbar-Button" name="p" value="Serie TV">Serie TV</Button>
-        </form>
+        
+            <a href="/serie-tv" class="Navbar-Button">Serie TV</a>
+
         <p style="color: var(--main-color); margin: 0;padding: 0;">|</p>
         <form class="Navbar-Form" action="" method="GET">
             <Button class="Navbar-Button" name="p" value="Film">Film</Button>
@@ -35,6 +55,12 @@
     </h3>
     <div class="Body-Container" id="Body-Container">
         <div class="Section">
+
+            <?php
+                //leggi url
+                $contenuto_da_mostrare = //se url sta in contenuti_da_mostrare_sotto[key] allora = $contenuti_da_mostrare_sotto[url] altrimenti $contenuti_da_mostrare_sotto["default"]
+            ?>
+
             <h3 class="Section-Title">Serie TV Consigliate</h3>
             <div class="media-container">
                 <div class="media-card">
