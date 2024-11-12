@@ -1,0 +1,52 @@
+:root {
+    height: -webkit-fill-available;
+    background-color: rgb(26, 26, 26);
+    --main-color: #6bdaff;
+    --text-color: white;
+}
+
+body {
+    background-color: rgb(26, 26, 26);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    justify-items: stretch;
+    height: -webkit-fill-available;
+    flex-direction: column;
+}
+
+.Navbar-Container {
+    border-color: var(--main-color);
+    background-color: #2892b63b;
+    margin: 16px 32px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 16px;
+    box-shadow: var(--main-color) 0px 0px 256px 0px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    backdrop-filter: blur(4px);
+}
+
+.Navbar-Button {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    margin: 8px;
+}
+
+.Body-Container {
+    border-color: var(--main-color);
+    background-color: #2892b63b;
+    margin: 16px;
+    padding: 16px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 16px;
+    box-shadow: var(--main-color) 0px 0px 256px 0px;
+    backdrop-filter: blur(4px);
+    height: -webkit-fill-available;
+}
