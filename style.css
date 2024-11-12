@@ -2,11 +2,15 @@
     height: -webkit-fill-available;
     background-color: rgb(26, 26, 26);
     --main-color: #6bdaff;
-    --text-color: white;
+    --text-color: #e0f7ff;
 }
 
 body {
     background-color: rgb(26, 26, 26);
+    background-image: url(imgs/BG.png);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: soft-light;
     color: var(--text-color);
     margin: 0;
     display: flex;
@@ -29,7 +33,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(12px);
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 .Navbar-Button {
@@ -37,7 +43,22 @@ body {
     height: -webkit-fill-available;
     margin: 8px;
     border: var(--main-color) solid 2px;
+    background-color: #000000ab;
+    color: var(--main-color);;
     border-radius: 8px;
+    backdrop-filter: blur(12px);
+    transition: all .15s;
+}
+
+.Navbar-Button:hover {
+    box-shadow: var(--main-color) 0px 0px 64px 0px;
+    text-shadow: var(--main-color) 0px 0px 16px;
+    transition: all .15s;
+}
+
+.Navbar-Button:active {
+    scale: 0.9;
+    transition: all .15s;
 }
 
 .Body-Container {
@@ -49,6 +70,68 @@ body {
     border-style: solid;
     border-radius: 16px;
     box-shadow: var(--main-color) 0px 0px 256px 0px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(12px);
     height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.Separator {
+    border: 2px var(--main-color) solid;
+    width: 50%;
+    border-radius: 50px;
+    align-self: center;
+    margin: 2px;
+    box-shadow: var(--main-color) 0px 0px 16px 0px;
+}
+
+.Section-Title {
+    margin-left: 8px;
+}
+
+.Section {
+    flex: 50%;
+}
+
+.media-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    gap: 8px;
+    overflow: auto;
+}
+.media-card{
+    border: 2px solid var(--main-color);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 256px;
+}
+.media-title{
+    text-align: center;
+    margin: 8px;
+}
+.media-image{
+    padding: 8px;
+    border-radius: 16px;
+    width: -webkit-fill-available;
+    align-self: center;
+    max-height: 128px;
+    object-fit: cover;
+}
+.media-description{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: fit-content;
+    margin: 8px;
 }
