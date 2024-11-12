@@ -1,6 +1,7 @@
 <?php
     $site_name = "S&F";
-    $current_page_title = $_GET["p"];
+    $current_page_title_param = $_GET["p"];
+    $current_page_title = $site_name." - ".$current_page_title_param;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         <?php
-            echo $site_name + " - " + $current_page_title;
+            echo $current_page_title;
         ?>
     </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -30,7 +31,7 @@
         </form>
     </div>
     <h3 class="PageTitle" id="PageTitle">
-        <?php echo $current_page_title ?>
+        <?php echo $current_page_title_param ?>
     </h3>
     <div class="Body-Container" id="Body-Container">
         <div class="Section">
