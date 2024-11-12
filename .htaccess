@@ -1,0 +1,7 @@
+# Checks if the rewrite mod is on.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Force everything through the index.php file
+    RewriteRule . index.php [L]
+</IfModule>

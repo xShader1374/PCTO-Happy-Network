@@ -2,23 +2,27 @@
     $site_name = "S&F";
     //lettura url
     //in base alla risorsa chiesta, carica risorsa richiesta oppure default oppure 404
-    $current_page_title_param = (isset($_GET["p"])) ? $_GET["p"] : "vuoto";
-    $current_page_title = $site_name." - ".$current_page_title_param;
+    $current_page_title_param = $_SERVER['REQUEST_URI'];
+    $current_page_title = "404";
 
     $titoli_disponibili = array(
-        ""                  => "Benvenuto",
-        "/homepage"         => "Benvenuto",
-        "/film"             => "Lista Film",
-        "/serie-tv"         => "Lista Serie TV",
-        "default"           => "Titolo default",
+        ""                          => "Esplora",
+        "/"                         => "Esplora",
+        "/homepage"                 => "Esplora",
+        "/homepage/esplora/"         => "Esplora",
+        "/homepage/film/"            => "Lista Film",
+        "/homepage/serie-tv/"        => "Lista Serie TV",
+        "default"                   => "404",
     );
 
     $contenuti_da_mostrare_sotto = array(
-        ""                  => "/homepage/index.php",
-        "/homepage"         => "/homepage/index.php",
-        "/film"             => "/homepage/film/index.php",
-        "/serie-tv"         => "/homepage/serie_tv/index.php",
-        "default"           => "404",
+        ""                      => "/homepage/index.php",
+        "/"                     => "/homepage/index.php",
+        "/homepage"             => "/homepage/index.php",
+        "/homepage/esplora/"     => "/homepage/index.php",
+        "/homepage/film/"        => "/homepage/film/index.php",
+        "/homepage/serie-tv/"    => "/homepage/serie_tv/index.php",
+        "default"               => "404",
     );
 ?>
 <!DOCTYPE html>
@@ -29,26 +33,25 @@
     <title>
         <?php
             //lettura url
-            $current_page_title = //se url sta in titoli_disponibili[key] allora = $titoli_disponibili[url] altrimenti $titoli_disponibili["default"]
+            //$current_page_title = //se url sta in titoli_disponibili[key] allora = $titoli_disponibili[url] altrimenti $titoli_disponibili["default"]
+            if (key_exists($current_page_title_param, $titoli_disponibili)){
+                $current_page_title = $site_name." - ".$titoli_disponibili[$current_page_title_param];
+            } else {
+                $current_page_title = $site_name." - ".$titoli_disponibili["default"];
+            }
             echo $current_page_title;
         ?>
     </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="Navbar-Container" id="Navbar-Container">
-
-            <a href="/" class="Navbar-Button">Esplora</Button>
-
+        <a href="/homepage/esplora/" class="Navbar-Button">Esplora</a>
         <p style="color: var(--main-color); margin: 0;padding: 0;">|</p>
-        
-            <a href="/serie-tv" class="Navbar-Button">Serie TV</a>
-
+        <a href="/homepage/serie-tv/" class="Navbar-Button">Serie TV</a>
         <p style="color: var(--main-color); margin: 0;padding: 0;">|</p>
-        <form class="Navbar-Form" action="" method="GET">
-            <Button class="Navbar-Button" name="p" value="Film">Film</Button>
-        </form>
+        <a href="/homepage/film/" class="Navbar-Button">Film</a>
     </div>
     <h3 class="PageTitle" id="PageTitle">
         <?php echo $current_page_title_param ?>
@@ -58,7 +61,7 @@
 
             <?php
                 //leggi url
-                $contenuto_da_mostrare = //se url sta in contenuti_da_mostrare_sotto[key] allora = $contenuti_da_mostrare_sotto[url] altrimenti $contenuti_da_mostrare_sotto["default"]
+                //$contenuto_da_mostrare = //se url sta in contenuti_da_mostrare_sotto[key] allora = $contenuti_da_mostrare_sotto[url] altrimenti $contenuti_da_mostrare_sotto["default"]
             ?>
 
             <h3 class="Section-Title">Serie TV Consigliate</h3>
@@ -161,6 +164,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymus"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
