@@ -5,6 +5,8 @@
     --text-color: #e0f7ff;
 }
 
+
+
 body {
     background-color: rgb(26, 26, 26);
     background-image: url(imgs/BG.png);
@@ -24,7 +26,7 @@ body {
 .Navbar-Container {
     border-color: var(--main-color);
     background-color: #2892b63b;
-    margin: 16px 32px 0px 32px;
+    margin: 16px 32px;
     border-width: 2px;
     border-style: solid;
     border-radius: 16px;
@@ -36,6 +38,11 @@ body {
     backdrop-filter: blur(12px);
     flex-wrap: nowrap;
     flex-direction: row;
+}
+
+.Navbar-Form {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
 }
 
 .Navbar-Button {
@@ -87,6 +94,15 @@ body {
     user-select: none; /* Standard */
 }
 
+.PageTitle {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    margin-block: 0;
+    padding-block: 0;
+}
+
 .Separator {
     border: 2px var(--main-color) solid;
     width: 50%;
@@ -114,7 +130,7 @@ body {
     width: -webkit-fill-available;
     gap: 8px;
     overflow-x: auto;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 }
 .media-card{
     border: 2px solid var(--main-color);

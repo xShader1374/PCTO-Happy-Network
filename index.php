@@ -1,20 +1,37 @@
+<?php
+    $site_name = "S&F";
+    $current_page_title = $_GET["p"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <title>
+        <?php
+            echo $site_name + " - " + $current_page_title;
+        ?>
+    </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="Navbar-Container" id="Navbar-Container">
-        <Button class="Navbar-Button" onclick="aggiornaTitolo(0)">Esplora</Button>
-        <p style="align-self: end; color: var(--main-color);">|</p>
-        <Button class="Navbar-Button" onclick="aggiornaTitolo(1)">Serie TV</Button>
-        <p style="align-self: end; color: var(--main-color);">|</p>
-        <Button class="Navbar-Button" onclick="aggiornaTitolo(2)">Film</Button>
+        <form class="Navbar-Form" action="" method="GET">
+            <Button class="Navbar-Button" name="p" value="Esplora">Esplora</Button>
+        </form>
+        <p style="color: var(--main-color); margin: 0;padding: 0;">|</p>
+        <form class="Navbar-Form" action="" method="GET">
+            <Button class="Navbar-Button" name="p" value="Serie TV">Serie TV</Button>
+        </form>
+        <p style="color: var(--main-color); margin: 0;padding: 0;">|</p>
+        <form class="Navbar-Form" action="" method="GET">
+            <Button class="Navbar-Button" name="p" value="Film">Film</Button>
+        </form>
     </div>
+    <h3 class="PageTitle" id="PageTitle">
+        <?php echo $current_page_title ?>
+    </h3>
     <div class="Body-Container" id="Body-Container">
         <div class="Section">
             <h3 class="Section-Title">Serie TV Consigliate</h3>
