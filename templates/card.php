@@ -1,12 +1,10 @@
 <?php
-	global $card;
-
-	//card dovrebbe essere array=[title, description, img_url]
+	global $media;
 ?>
 
 <div class="media-card">
-	<h5 class="media-title unselectable"><?= $card["title"] ?></h5>
-	<img class="media-image unselectable" src="<?= $card["img_url"] ?>" alt="media-image">
+	<h5 class="media-title unselectable"><?= $media["title"] ?></h5>
+	<img class="media-image unselectable" src="<?= $media["img_url"] ?>" alt="media-image">
 	<div class="Separator-Card unselectable"></div>
-	<p class="media-description unselectable"><?= $card["description"] ?></p>
+	<p class="media-description unselectable"><?= $media["description"] ?></p>
 </div>

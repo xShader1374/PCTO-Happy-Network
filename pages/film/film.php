@@ -40,15 +40,14 @@ $categorie_solo_film_json = '{
 $categorie_solo_film = json_decode($categorie_solo_film_json, true);
 
 $i = 0;
-
-foreach ($categorie_solo_film as $index => $categoria) {
-	$nome_categoria = $index;
-
+foreach ($categorie_solo_film as $nome_categoria => $lista_media) {
 	if ($i == 0) {
 		$i++;
         include("templates/section.php");
         continue;
     }
+    
+    //array_key_last()
     
     echo '<div class="Separator unselectable"></div>';
 	include("templates/section.php");
