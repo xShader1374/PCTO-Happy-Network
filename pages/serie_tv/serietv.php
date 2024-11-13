@@ -11,7 +11,14 @@ $categorie = array("azione", "drammatico", "romantico", "fantasy", "horror");
 ?>
 
 <?php
-foreach ($categorie as $categoria) {
-	include_once("templates/section.php");
+
+foreach ($categorie as $index => $categoria) {
+    if ($index == 0) {
+        include("templates/section.php");
+        continue;
+    }
+    
+    echo '<div class="Separator unselectable"></div>';
+	include("templates/section.php");
 }
 ?>

@@ -6,35 +6,98 @@ global $categoria;
 
 //$section_title = "Section Title";
 
-$esempio_json_risposta = `{
-        [
-            {
-                "title":"Titolo",
-                "description": "descrizione",
-                "img_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-            },
-            {
-                "title":"Titolo",
-                "description": "descrizione",
-                "img_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-            },
-            {
-                "title":"Titolo",
-                "description": "descrizione",
-                "img_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-            }
-        ]
-    }`;
+$esempio_json_risposta = '[
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        }
+    ]';
 
 $cards = array();
 
-$esempio_risposta = json_decode($esempio_json_risposta);
+$esempio_risposta = json_decode($esempio_json_risposta, true);
 
-foreach ($esempio_risposta as $item) {
+#var_dump($esempio_risposta);
+#exit;
+
+foreach ($esempio_risposta as $card_item) {
     $card = array();
-    $card["title"] = $item["title"];
-    $card["description"] = $item["description"];
-    $card["img_url"] = $item["img_url"];
+    #var_dump($card);
+    #exit;
+    $card["title"] = $card_item["title"];
+    $card["description"] = $card_item["description"];
+    $card["img_url"] = $card_item["img_url"];
     $cards[] = $card;
 }
 
@@ -44,44 +107,15 @@ foreach ($esempio_risposta as $item) {
             "description" = "Description",
             "img_url" = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
         ],
-        [
-            "title" = "Titolo2",
-            "description" = "Description",
-            "img_url" = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-        ],
-        [
-            "title" = "Titolo3",
-            "description" = "Description",
-            "img_url" = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-        ],
-        [
-            "title" = "Titolo4",
-            "description" = "Description",
-            "img_url" = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-        ],
-        [
-            "title" = "Titolo5",
-            "description" = "Description",
-            "img_url" = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-        ],
-        [
-            "title" = "Titolo6",
-            "description" = "Description",
-            "img_url" = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s",
-        ],
     )*/
 ?>
 
-
-
-
-
 <div class="Section">
-    <h3 class="Section-Title"><?= $categoria ?></h3>
+    <h3 class="Section-Title"><?= ucfirst($categoria) ?></h3>
     <div class="media-container">
         <?php
         foreach ($cards as $card) {
-            include_once("templates/card.php");
+            include("templates/card.php");
         }
         ?>
     </div>

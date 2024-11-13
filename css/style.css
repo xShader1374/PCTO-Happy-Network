@@ -7,7 +7,7 @@
 
 body {
     background-color: rgb(26, 26, 26);
-    background-image: url(imgs/BG.png);
+    background-image: url(/imgs/BG.png);
     background-position: center;
     background-size: cover;
     background-blend-mode: soft-light;
@@ -47,9 +47,9 @@ body {
     width: -webkit-fill-available;
     height: -webkit-fill-available;
     margin: 8px;
-    border: var(--main-color) solid 2px;
+    border: #6bdaff38 solid 2px;
     background-color: #000000ab;
-    color: var(--main-color);;
+    color: var(--main-color);
     border-radius: 8px;
     backdrop-filter: blur(12px);
     text-align: center;
@@ -61,6 +61,7 @@ body {
     scale: 0.975;
     box-shadow: var(--main-color) 0px 0px 64px 0px;
     text-shadow: var(--main-color) 0px 0px 16px;
+    border: var(--main-color) solid 1px;
     transition: all .15s;
 }
 
@@ -83,6 +84,8 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .unselectable {
