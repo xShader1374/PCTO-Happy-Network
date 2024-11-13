@@ -108,10 +108,10 @@ body {
 
 .Separator {
     border: 2px var(--main-color) solid;
-    width: 50%;
+    width: 25%;
     border-radius: 50px;
     align-self: center;
-    margin: 2px;
+    margin: 8px;
     box-shadow: var(--main-color) 0px 0px 16px 0px;
 }
 
@@ -136,7 +136,7 @@ body {
     scrollbar-width: thin;
 }
 .media-card{
-    border: 2px solid var(--main-color);
+    border: #6bdaff38 solid 2px;
     backdrop-filter: blur(12px);
     border-radius: 16px;
     display: flex;
@@ -145,16 +145,18 @@ body {
     align-content: stretch;
     justify-content: center;
     align-items: stretch;
+    min-width: 256px;
     max-width: 256px;
     transition: all .15s;
 }
 .media-card:hover {
     cursor: pointer;
     scale: 0.975;
-    box-shadow: inset var(--main-color) 0px 0px 16px 0px;
+    box-shadow: inset var(--main-color) 0px 0px 8px 2px;
     text-shadow: var(--main-color) 0px 0px 16px;
     backdrop-filter: blur(4px);
     transition: all .15s;
+    background: #00ced11a;
 }
 .media-card:active {
     scale: 0.9;

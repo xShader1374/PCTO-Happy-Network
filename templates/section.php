@@ -1,7 +1,9 @@
 <?php
 global $categoria;
 
-if($categoria == "azione"){
+
+
+if($categoria == "azione") {
     $esempio_json_risposta = '[
         {
             "title": "Titolo1",
@@ -15,7 +17,7 @@ if($categoria == "azione"){
         }
     ]
     ';
-}else{
+} else {
     $esempio_json_risposta = '[
         {
             "title": "Titolo1",
@@ -44,8 +46,10 @@ if($categoria == "azione"){
 $cards = array();
 
 $esempio_risposta = json_decode($esempio_json_risposta, true);
-#vardump $esempio_risposta
-#exit;
+
+vardump($esempio_risposta);
+exit;
+
 foreach ($esempio_risposta as $card_item) {
     $card = array();
     $card["title"] = $card_item["title"];
@@ -53,7 +57,7 @@ foreach ($esempio_risposta as $card_item) {
     $card["img_url"] = $card_item["img_url"];
     $cards[] = $card;
 }
-#vardump $cards
+#vardump($cards);
 #exit;
 ?>
 
