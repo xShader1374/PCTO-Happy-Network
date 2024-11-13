@@ -33,6 +33,26 @@ $categorie_solo_serie_tv_json = '{
             "title": "Titolo4",
             "description": "Descrizione4",
             "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo5",
+            "description": "Descrizione5",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo6",
+            "description": "Descrizione6",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo7",
+            "description": "Descrizione7",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
+        },
+        {
+            "title": "Titolo8",
+            "description": "Descrizione8",
+            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
         }
     ],
     "horror": [
