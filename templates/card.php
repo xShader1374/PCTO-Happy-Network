@@ -1,5 +1,7 @@
 <?php
 	global $card;
+
+	//card dovrebbe essere array=[title, description, img_url]
 ?>
 
 <div class="media-card">
