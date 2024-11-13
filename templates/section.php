@@ -1,15 +1,14 @@
 <?php
-global $categoria;
-
-#var_dump($categoria);
-#exit;
+    global $nome_categoria;
+    global $categoria;
 ?>
 
 <div class="Section">
-    <h3 class="Section-Title"><?= ucfirst(/*NOME CATEGORIA (CHIAVE ARRAY)*/"") ?></h3>
+    <h3 class="Section-Title"><?= ucfirst(/*NOME CATEGORIA (CHIAVE ARRAY)*/"$nome_categoria") ?></h3>
     <div class="media-container">
         <?php
-        foreach ($cards as $card) { //cicli sui film che contiene $categoria 
+        foreach ($categoria as $card) { //cicli sui film che contiene $categoria
+            
             include("templates/card.php");
         }
         ?>

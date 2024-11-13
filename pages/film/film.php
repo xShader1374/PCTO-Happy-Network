@@ -1,15 +1,15 @@
 <?php
 
-$categorie_solo_film_json = '[
-    "romantico":[
+$categorie_solo_film_json = '{
+    "romantico": [
         {
             "title": "Titolo1",
-            "description": "Descrizione3",
+            "description": "Descrizione1",
             "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
         },
         {
             "title": "Titolo2",
-            "description": "Descrizione3",
+            "description": "Descrizione2",
             "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
         },
         {
@@ -18,15 +18,15 @@ $categorie_solo_film_json = '[
             "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
         }
     ],
-    "horror":[
+    "horror": [
         {
             "title": "Titolo1",
-            "description": "Descrizione3",
+            "description": "Descrizione1",
             "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
         },
         {
             "title": "Titolo2",
-            "description": "Descrizione3",
+            "description": "Descrizione2",
             "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
         },
         {
@@ -35,15 +35,14 @@ $categorie_solo_film_json = '[
             "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
         }
     ]
-]';
+}';
 
 $categorie_solo_film = json_decode($categorie_solo_film_json, true);
 
-#var_dump($categorie_solo_film);
-#exit;
-
 foreach ($categorie_solo_film as $index => $categoria) {
-    if ($index == 0) {
+	$nome_categoria = $index;
+
+	if ($index == 0) {
         include("templates/section.php");
         continue;
     }
