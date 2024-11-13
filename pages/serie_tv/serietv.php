@@ -97,20 +97,13 @@ $categorie_solo_serie_tv_json = '{
 }';
 
 $categorie_solo_serie_tv = json_decode($categorie_solo_serie_tv_json, true);
-
-$i = 0;
+$last_category = key(array_slice($categorie_solo_serie_tv, -1, 1, true));
 
 foreach ($categorie_solo_serie_tv as $nome_categoria => $lista_media) {
-	if ($i == 0) {
-		$i++;
-        include("templates/section.php");
-        continue;
-    }
-
-    //array_key_last()
+    include("templates/section.php");
     
-    echo '<div class="Separator unselectable"></div>';
-	include("templates/section.php");
-	$i++;
+    if ($last_category != $nome_categoria) {
+        echo '<div class="Separator unselectable"></div>';
+    }
 }
 ?>
