@@ -100,8 +100,7 @@ $categorie_solo_serie_tv = json_decode($categorie_solo_serie_tv_json, true);
 
 $i = 0;
 
-foreach ($categorie_solo_serie_tv as $index => $categoria) {
-	$nome_categoria = $index;
+foreach ($categorie_solo_serie_tv as $nome_categoria => $categoria) {
 
 	if ($i == 0) {
 		$i++;

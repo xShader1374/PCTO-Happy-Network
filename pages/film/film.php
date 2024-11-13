@@ -41,9 +41,7 @@ $categorie_solo_film = json_decode($categorie_solo_film_json, true);
 
 $i = 0;
 
-foreach ($categorie_solo_film as $index => $categoria) {
-	$nome_categoria = $index;
-
+foreach ($categorie_solo_film as $nome_categoria => $categoria) {
 	if ($i == 0) {
 		$i++;
         include("templates/section.php");
