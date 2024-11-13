@@ -1,6 +1,9 @@
+<?php
+    $sections_amount ;
+    $card_template = "templates/homepage.php";
+?>
+
 <div class="Section">
-
-
 	<h3 class="Section-Title">Serie TV Consigliate</h3>
 	<div class="media-container">
 		<div class="media-card">

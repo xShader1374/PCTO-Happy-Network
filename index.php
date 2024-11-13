@@ -6,21 +6,21 @@
     $current_page_title_param = trim($_SERVER['REQUEST_URI'], "/");
 
     $titoli_disponibili = array(
-        ""                          => "Esplora",
+        ""                         => "Esplora",
         "homepage"                 => "Esplora",
         "homepage/esplora"         => "Esplora",
         "homepage/film"            => "Lista Film",
         "homepage/serie-tv"        => "Lista Serie TV",
-        "default"                   => "404",
+        "default"                  => "404",
     );
 
     $contenuti_da_mostrare_sotto = array(
-        ""                      => "pages/homepage.php",
+        ""                    => "pages/homepage.php",
         "homepage"            => "pages/homepage.php",
-        "homepage/esplora"     => "pages/homepage.php",
-        "homepage/film"        => "pages/film/film.php",
-        "homepage/serie-tv"    => "pages/serie_tv/serietv.php",
-        "default"               => "404.php",
+        "homepage/esplora"    => "pages/homepage.php",
+        "homepage/film"       => "pages/film/film.php",
+        "homepage/serie-tv"   => "pages/serie_tv/serietv.php",
+        "default"             => "404.php",
     );
 
     if (key_exists($current_page_title_param, $titoli_disponibili)) {
