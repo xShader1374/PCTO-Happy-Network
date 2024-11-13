@@ -1,9 +1,5 @@
 <?php
 	global $card;
-
-    //$card_title = "Title";
-    //$card_description = "Description";
-    //$card_img_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s";
 ?>
 
 <div class="media-card">
