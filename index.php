@@ -26,15 +26,15 @@
     if (key_exists($current_page_title_param, $titoli_disponibili)) {
         $current_page_title = $site_name . " - " . $titoli_disponibili[$current_page_title_param];
         $current_page_section = $titoli_disponibili[$current_page_title_param];
+        $content = $contenuti_da_mostrare_sotto[$current_page_title_param];
     } else {
         $current_page_title = $site_name . " - " . $titoli_disponibili["default"];
         $current_page_section = $titoli_disponibili["default"];
+        $content = $contenuti_da_mostrare_sotto["default"];
     }
 
     #var_dump($current_page_title_param);
     #exit;
-    
-    $content = $contenuti_da_mostrare_sotto[$current_page_title_param];
 
     include_once("main.php");
 ?>

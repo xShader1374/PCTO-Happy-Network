@@ -5,7 +5,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
