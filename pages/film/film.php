@@ -1,37 +1,22 @@
 <?php
-
-    // Arrivare a far sì che si faccia una sola chiamata:
-    // Prendere dalla tabella Media tutti i media che: Hanno come tipo "serie_tv" e in "categoria" la categoria che stiamo mostrando
-
     $tipo = "film";
 
-    $nomi_categorie = []; // Nome di ogni categoria
-    $id_categorie = []; // ID di ogni categoria
-    $lista_media = []; // Media Data di ogni categoria (filtrata)
+    $categorie_api = getDataItemsArrayWithCurl("collections/Categorie/records");
 
-    // Prende tutte le categorie
-    $categorie = getDataItemsArrayWithCurl("collections/Categorie/records");
+    $categorie = array();
 
-    // Prendere tutti nomi delle categorie genericamente
-    foreach ($categorie as $categoria) {
-        $nomi_categorie[] = $categoria["nome"];
-        $id_categorie[] = $categoria["id"];
+    foreach ($categorie_api as $categoria) {
+        $cat = array();
+        $cat["nome"] = $categoria["nome"];
+        $cat["id"] = $categoria["id"];
+        $categorie[] = $cat;
     }
 
-    $last_category = key(array_slice($nomi_categorie, -1, 1, true));
+    $last_category_index = count($categorie_api) - 1;
 
-    foreach ($nomi_categorie as $index => $nome_categoria) {
-        // Prende tutti i media che sono specificamente serie_tv e hanno X categoria
-        $lista_media = getDataItemsArrayWithCurl("collections/Media/records/?filter=(tipo=%22".$tipo."%22%20%26%26%20categoria~%22".$id_categorie[$index]."%22)");
-
-        if (count($lista_media) == 0) {
-            continue;
-        }  
-        
-        include("templates/section.php");
-
-        if ($last_category != $nome_categoria) {
-            echo '<div class="Separator unselectable"></div>';
-        }
+    foreach ($categorie as $index => $categoria) {
+		if ($index == $last_category_index) continue;
+		include("templates/section.php");
+		echo '<div class="Separator unselectable"></div>';
     }
 ?>
