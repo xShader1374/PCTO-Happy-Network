@@ -3,6 +3,8 @@
     // Arrivare a far sì che si faccia una sola chiamata:
     // Prendere dalla tabella Media tutti i media che: Hanno come tipo "serie_tv" e in "categoria" la categoria che stiamo mostrando
 
+    $tipo = "serie_tv";
+
     $nomi_categorie = []; // Nome di ogni categoria
     $id_categorie = []; // ID di ogni categoria
     $lista_media = []; // Media Data di ogni categoria (filtrata)
@@ -20,7 +22,7 @@
 
     foreach ($nomi_categorie as $index => $nome_categoria) {
         // Prende tutti i media che sono specificamente serie_tv e hanno X categoria
-        $lista_media = getDataItemsArrayWithCurl("collections/Media/records/?filter=(tipo=%22serie_tv%22%20%26%26%20categoria~%22".$id_categorie[$index]."%22)");
+        $lista_media = getDataItemsArrayWithCurl("collections/Media/records/?filter=(tipo=%22".$tipo."%22%20%26%26%20categoria~%22".$id_categorie[$index]."%22)");
 
         if (count($lista_media) == 0) {
             continue;
