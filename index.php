@@ -33,8 +33,7 @@
         $content = $contenuti_da_mostrare_sotto["default"];
     }
 
-    #var_dump($current_page_title_param);
-    #exit;
+    include_once("api_calls_manager.php");
 
     include_once("main.php");
 ?>

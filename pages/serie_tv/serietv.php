@@ -1,109 +1,30 @@
 <?php
 
-$categorie_solo_serie_tv_json = '{
-    "azione": [
-        {
-            "title": "Titolo1",
-            "description": "Descrizione1",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo2",
-            "description": "Descrizione2",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        }
-    ],
-    "drammatico": [
-        {
-            "title": "Titolo1",
-            "description": "Descrizione1",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo2",
-            "description": "Descrizione2",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo3",
-            "description": "Descrizione3",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo4",
-            "description": "Descrizione4",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo5",
-            "description": "Descrizione5",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo6",
-            "description": "Descrizione6",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo7",
-            "description": "Descrizione7",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo8",
-            "description": "Descrizione8",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        }
-    ],
-    "horror": [
-        {
-            "title": "Titolo1",
-            "description": "Descrizione1",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo2",
-            "description": "Descrizione2",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo3",
-            "description": "Descrizione3",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo4",
-            "description": "Descrizione4",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        }
-    ],
-    "romantico": [
-        {
-            "title": "Titolo1",
-            "description": "Descrizione1",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo2",
-            "description": "Descrizione2",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        },
-        {
-            "title": "Titolo3",
-            "description": "Descrizione3",
-            "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTE5iCv4FF2t_zcBubldZ7asQz6xC1jpTuQ&s"
-        }
-    ]
-}';
+    $categorie = []; // Nome di ogni categoria
+    $lista_media_id = []; // Media ID di ogni categoria
+    $categorie_solo_serie_tv = []; // Nome di ogni categoria serie tv
+    $lista_media_id_solo_serie_tv = []; // Media ID di ogni categoria serie tv
+    $last_category = key(array_slice($categorie_solo_serie_tv, -1, 1, true));
 
-$categorie_solo_serie_tv = json_decode($categorie_solo_serie_tv_json, true);
-$last_category = key(array_slice($categorie_solo_serie_tv, -1, 1, true));
-
-foreach ($categorie_solo_serie_tv as $nome_categoria => $lista_media) {
-    include("templates/section.php");
-    
-    if ($last_category != $nome_categoria) {
-        echo '<div class="Separator unselectable"></div>';
+    // Prendere tutte le categorie genericamente
+    foreach (getDataItemsArrayWithCurl("collections/Categorie/records") as $categoria) {
+        $categorie_solo_serie_tv[] = $categoria["nome"];
     }
-}
+    foreach (getDataItemsArrayWithCurl("collections/Categorie/records") as $categoria) {
+        $lista_media_id_solo_serie_tv[] = $categoria["media"];
+    }
+
+    // Ora filtrarli tutti prendendo solo quelli che hanno al loro interno almeno 
+    foreach (getDataItemsArrayWithCurl("collections/Categorie/records") as $categoria) {
+
+    }
+
+    foreach ($categorie_solo_serie_tv as $index => $nome_categoria) {
+        $lista_media_singola_categoria = $lista_media_id_solo_serie_tv[$index];
+        include("templates/section.php");
+
+        if ($last_category != $nome_categoria) {
+            echo '<div class="Separator unselectable"></div>';
+        }
+    }
 ?>
