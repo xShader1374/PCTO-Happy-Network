@@ -4,7 +4,7 @@
 ?>
 
 <div class="Section">
-    <h3 class="Section-Title"><?= ucfirst("$nome_categoria") ?></h3>
+    <h3 class="Section-Title unselectable"><?= ucfirst("$nome_categoria") ?></h3>
     <div class="media-container">
         <?php
         foreach ($lista_media as $media) {

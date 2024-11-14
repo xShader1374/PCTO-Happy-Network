@@ -20,7 +20,7 @@
 <body>
 	<?php include_once("navbar.php") ?>
 
-	<h3 class="PageTitle" id="PageTitle">
+	<h3 class="PageTitle unselectable" id="PageTitle">
 		<?php echo $current_page_section; ?>
 	</h3>
 
