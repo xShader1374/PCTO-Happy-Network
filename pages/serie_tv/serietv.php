@@ -15,11 +15,7 @@
     $last_category_index = count($categorie_api) - 1;
 
     foreach ($categorie as $index => $categoria) {
-		if (count($categoria) < 1) continue;
-
+        $section_index = $index;
 		include("templates/section.php");
-
-        if ($index == $last_category_index) continue;
-		echo '<div class="Separator unselectable"></div>';
     }
 ?>
