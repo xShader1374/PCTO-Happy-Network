@@ -34,7 +34,10 @@ async function getEpisodes(stagione_id, accordion_button_element_id, accordion_b
         
         
         resultList.items.forEach(Episodio => {
-            console.log(`${Episodio.titolo}:\n${Episodio.descrizione}`);
+            //console.log(`${Episodio.titolo}:\n${Episodio.descrizione}`);
+            var contenuto = document.createElement("p");
+            contenuto.innerHTML = `${Episodio.titolo} ${Episodio.descrizione}`;
+            accordion_body.appendChild(contenuto);
         });
         
         // Cancelliamo l'attributo "onclick", per evitare che esegua nuovamente la funzione
