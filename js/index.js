@@ -55,7 +55,7 @@ function updateModalInfo(title, trailer_url, description, media_id, type) {
         //});
         
 
-    } else { // WORK IN PROGRESS
+    } else if (type === "film") { // WORK IN PROGRESS
         const episodes = getEpisodes(media_id);
 
         modal_lista_ep_stag.innerHTML = episodes
@@ -80,6 +80,8 @@ function updateModalInfo(title, trailer_url, description, media_id, type) {
                 </div>
             </div>
         `).join('');
-    }    
+    } else {
+        console.log("Wrong TYPE: ", type)
+    }
 }
 
