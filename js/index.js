@@ -22,15 +22,23 @@ async function getEpisodes(stagione_id, accordion_button_element_id, accordion_b
 
     // Per evitare che faccia una chiamata API ecc. anche quando lo stiamo chiudendo, facciamo un check
     //
-    // Se non è collapsed e il contenuto non è già stato caricato:
-    if (!accordion_button.classList.contains("collapsed") && !accordion_button.getAttribute('loaded')) {
-        console.log(`CLICKED!: ${stagione_id}, ${accordion_body_id}, ${accordion_button_element_id}`);
-        //const resultList = await pb.collection('Episodi').getList(1, 50, {
-        //    filter: 'stagione = "' + stagione_id + '"',
-        //});
-        //
+    // Se non è collapsed:
+    if (!accordion_button.classList.contains("collapsed")) {
+
+        // Pulisce l'interno dell'html del container prima di metterci le nuove informazioni, altrimenti ci saranno quelle vecchie + quelle nuove
+        accordion_body.innerHTML = "";
+
+        const resultList = await pb.collection('Episodi').getList(1, 50, {
+            filter: 'stagione = "' + stagione_id + '"',
+        });
         
-        accordion_button.setAttribute('loaded', 'true');
+        
+        resultList.items.forEach(Episodio => {
+            console.log(`${Episodio.titolo}:\n${Episodio.descrizione}`);
+        });
+        
+        // Cancelliamo l'attributo "onclick", per evitare che esegua nuovamente la funzione
+        accordion_button.removeAttribute('onclick');
     }
 }
 
@@ -55,10 +63,10 @@ async function updateModalInfo(title, trailer_url, description, media_id, type) 
 
         stagioni.forEach((stagione, index) => {
             var titolo = `${stagione.nome} (${stagione.n_episodi})`;
-            console.log(`${index + 1}) ${titolo} serie_tv: ${stagione.serie_tv}`);
+            console.log(`${index + 1}) ${titolo} serie_tv: ${stagione.id}`);
             var temp = {
                 "titolo": titolo,
-                "id": stagione.serie_tv
+                "id": stagione.id
             }
             titoli_e_id.push(temp);
         });
@@ -85,7 +93,6 @@ async function updateModalInfo(title, trailer_url, description, media_id, type) 
             bottone.setAttribute('aria-expanded', 'false');
             bottone.setAttribute('aria-controls', `collapse-${stagione_info.id}-${index + 1}`);
             bottone.setAttribute('id', `collapse-button-${stagione_info.id}-${index + 1}`);
-            bottone.setAttribute('content-loaded', 'false');
             bottone.textContent = stagione_info.titolo;
           
             intestazione.appendChild(bottone);
@@ -95,7 +102,7 @@ async function updateModalInfo(title, trailer_url, description, media_id, type) 
             const corpo_stagione = document.createElement('div');
             corpo_stagione.classList.add('accordion-collapse', 'collapse');
             corpo_stagione.setAttribute('id', `collapse-${stagione_info.id}-${index + 1}`);
-            corpo_stagione.setAttribute('data-bs-parent', '#accordionExample');
+            corpo_stagione.setAttribute('data-bs-parent', '#listaEpisodi-Stagioni');
           
             const corpo_interno = document.createElement('div');
             corpo_interno.classList.add('accordion-body');
