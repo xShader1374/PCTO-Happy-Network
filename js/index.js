@@ -22,13 +22,7 @@ async function getEpisodes(stagione_id) {
     return resultList;
 }
 
-function updateModalInfo(title, trailer_url, description, media_id, type) {
-    // Debug
-    console.log(title);
-    console.log(trailer_url);
-    console.log(description);
-    console.log(media_id);
-    console.log(type);
+async function updateModalInfo(title, trailer_url, description, media_id, type) { //riceverai array media
 
     // Cambia url iframe, Cambiare titolo, Cambiare description
     modal_title.innerText = title;
@@ -38,28 +32,16 @@ function updateModalInfo(title, trailer_url, description, media_id, type) {
     // TODO: Una chiamata per prendere le stagioni e per ogni stagione fare una chiamata per prendere la lista degli episodi e per ogni episodio fare una chiamata per prendere il nome dell'episodio
 
     if (type === "serie_tv") {
-        const stagioni = getSeasons(media_id);
-
-        console.log(stagioni);
-
-        var jsonResponseParsed = JSON.parse(stagioni);
-
-        console.log(jsonResponseParsed);
+        const stagioni = await getSeasons(media_id);
         
-        // Aggiungi html:
-        
-        //modal_lista_ep_stag.innerHTML = stagioni;
-        //stagioni.forEach(stagione => {
-        //    const episodes = getEpisodes(stagione["id"]);
-        //    console.log(episodes);
-        //});
-        
+        console.log(stagioni.items);
 
-    } else if (type === "film") { // WORK IN PROGRESS
-        const episodes = getEpisodes(media_id);
+        /*
 
-        modal_lista_ep_stag.innerHTML = episodes
-        .map(episode => `
+        const episodi = getEpisodes(season_id);
+
+        modal_lista_ep_stag.innerHTML = episodi
+            .map(episode => `
             <div class="accordion-item-dark">
                 <h2 class="accordion-header">
                     <button class="accordion-button ${episode.index !== 1 ? 'collapsed' : ''} btn Navbar-Button" 
@@ -80,8 +62,7 @@ function updateModalInfo(title, trailer_url, description, media_id, type) {
                 </div>
             </div>
         `).join('');
-    } else {
-        console.log("Wrong TYPE: ", type)
+        */
     }
 }
 
