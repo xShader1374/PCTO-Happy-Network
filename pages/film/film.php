@@ -19,3 +19,30 @@
 		include("templates/section.php");
 	}
 ?>
+
+film
+
+//titolo
+
+//trailer
+
+//trama
+
+
+
+
+
+serie tv
+
+//id 
+
+//titolo
+
+//trailer
+
+//trama
+
+lista delle stagioni 
+S1
+    lista degli episodi
+S2

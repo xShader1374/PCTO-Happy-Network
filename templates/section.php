@@ -26,29 +26,3 @@ $lista_media = getDataItemsArrayWithCurl(
         if ($section_index != $last_category_index && $section_index != 0) echo '<div class="Separator unselectable"></div>';
     }
 ?>
-film
-
-//titolo
-
-//trailer
-
-//trama
-
-
-
-
-
-serie tv
-
-//id 
-
-//titolo
-
-//trailer
-
-//trama
-
-lista delle stagioni 
-S1
-    lista degli episodi
-S2
