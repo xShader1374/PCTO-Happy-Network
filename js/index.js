@@ -15,12 +15,23 @@ async function getSeasons(media_id) {
     return resultList;
 }
 
-async function getEpisodes(stagione_id) {
-    const resultList = await pb.collection('Episodi').getList(1, 50, {
-        filter: 'stagione = "' + stagione_id + '"',
-    });
+async function getEpisodes(stagione_id, accordion_button_element_id, accordion_body_id) {
+    // DEBUG
+    var accordion_button = document.getElementById(accordion_button_element_id);
+    var accordion_body = document.getElementById(accordion_body_id);
 
-    return resultList;
+    // Per evitare che faccia una chiamata API ecc. anche quando lo stiamo chiudendo, facciamo un check
+    //
+    // Se non è collapsed e il contenuto non è già stato caricato:
+    if (!accordion_button.classList.contains("collapsed") && !accordion_button.getAttribute('loaded')) {
+        console.log(`CLICKED!: ${stagione_id}, ${accordion_body_id}, ${accordion_button_element_id}`);
+        //const resultList = await pb.collection('Episodi').getList(1, 50, {
+        //    filter: 'stagione = "' + stagione_id + '"',
+        //});
+        //
+        
+        accordion_button.setAttribute('loaded', 'true');
+    }
 }
 
 async function updateModalInfo(title, trailer_url, description, media_id, type) { //riceverai array media
@@ -54,39 +65,52 @@ async function updateModalInfo(title, trailer_url, description, media_id, type) 
 
         console.log(titoli_e_id);
 
-        asynctitoli_e_id.forEach(stagione_info => {
-            var temp_ep = await getEpisodes(stagione_info.id);
-            episodi.push(temp_ep);
-        });
+        // Pulisce l'interno dell'html del container prima di metterci le nuove informazioni, altrimenti rimarranno quelle vecchie
+        modal_lista_ep_stag.innerHTML = "";
 
-        var episodi = getEpisodes(season_id);
-        
-        modal_lista_ep_stag.innerHTML = episodi
-            .map(episode => `
-            <div class="accordion" id="listaEpisodi-Stagioni">
-				<div class="accordion-item-dark">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button ${episode.index !== 1 ? 'collapsed' : ''} btn Navbar-Button" 
-                                type="button" 
-                                data-bs-toggle="collapse" 
-                                data-bs-target="#collapse${episode.index}" 
-                                aria-expanded="${episode.index === 1 ? 'true' : 'false'}" 
-                                aria-controls="collapse${episode.index}">
-                            ${episode.title}
-                        </button>
-                    </h2>
-                    <div id="collapse${episode.index}" 
-                        class="accordion-collapse collapse ${episode.index === 1 ? 'show' : ''}" 
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            ${episode.content}
-                        </div>
-                    </div>
-                </div>			
-			</div>
+        titoli_e_id.forEach((stagione_info, index) => {
+            // Crea un nuovo elemento div per rappresentare ogni stagione
+            const stagione_elem = document.createElement('div');
+            stagione_elem.classList.add('accordion-item-dark');
+          
+            // Crea l'intestazione della stagione
+            const intestazione = document.createElement('h2');
+            intestazione.classList.add('accordion-header');
             
-        `).join('');
-        
+            const bottone = document.createElement('button');
+            bottone.classList.add('accordion-button', 'btn', 'Navbar-Button', 'collapsed');
+            bottone.setAttribute('type', 'button');
+            bottone.setAttribute('data-bs-toggle', 'collapse');
+            bottone.setAttribute('data-bs-target', `#collapse-${stagione_info.id}-${index + 1}`);
+            bottone.setAttribute('aria-expanded', 'false');
+            bottone.setAttribute('aria-controls', `collapse-${stagione_info.id}-${index + 1}`);
+            bottone.setAttribute('id', `collapse-button-${stagione_info.id}-${index + 1}`);
+            bottone.setAttribute('content-loaded', 'false');
+            bottone.textContent = stagione_info.titolo;
+          
+            intestazione.appendChild(bottone);
+            stagione_elem.appendChild(intestazione);
+          
+            // Crea il corpo collassabile della stagione
+            const corpo_stagione = document.createElement('div');
+            corpo_stagione.classList.add('accordion-collapse', 'collapse');
+            corpo_stagione.setAttribute('id', `collapse-${stagione_info.id}-${index + 1}`);
+            corpo_stagione.setAttribute('data-bs-parent', '#accordionExample');
+          
+            const corpo_interno = document.createElement('div');
+            corpo_interno.classList.add('accordion-body');
+          
+            // Qui dovresti aggiungere il contenuto degli episodi per questa stagione
+            corpo_interno.setAttribute('id', `collapse-body-${stagione_info.id}-${index + 1}`);
+            
+            corpo_stagione.appendChild(corpo_interno);
+            stagione_elem.appendChild(corpo_stagione);
+            
+            bottone.setAttribute('onclick', `getEpisodes("${stagione_info.id}", "collapse-button-${stagione_info.id}-${index + 1}", "${corpo_interno.getAttribute('id')}")`);
+            
+            // Aggiungi l'elemento della stagione al contenitore delle stagioni
+            modal_lista_ep_stag.appendChild(stagione_elem);
+          });
     }
 }
 
