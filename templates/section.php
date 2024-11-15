@@ -23,6 +23,8 @@ $lista_media = getDataItemsArrayWithCurl(
             </div>
         </div>
     <?php
-        if ($section_index != $last_category_index && $section_index != 0) echo '<div class="Separator unselectable"></div>';
+        if ($last_category_index > 0 && $section_index < $last_category_index) {
+            echo '<div class="Separator unselectable"></div>';
+        }
     }
 ?>

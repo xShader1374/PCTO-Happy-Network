@@ -16,7 +16,7 @@ async function getSeasons(media_id) {
 }
 
 async function getEpisodes(stagione_id, accordion_button_element_id, accordion_body_id) {
-    // DEBUG
+    // Prendiamo gli elementi su cui lavorare
     var accordion_button = document.getElementById(accordion_button_element_id);
     var accordion_body = document.getElementById(accordion_body_id);
 
@@ -45,7 +45,12 @@ async function getEpisodes(stagione_id, accordion_button_element_id, accordion_b
     }
 }
 
-async function updateModalInfo(title, trailer_url, description, media_id, type) { //riceverai array media
+async function updateModalInfo(media) { //riceverai array media
+    title = media["nome"];
+    trailer_url = media["trailer_url"];
+    description = media["trama"];
+    media_id = media["id"];
+    type = media["tipo"];
 
     // Cambia url iframe, Cambiare titolo, Cambiare description
     modal_title.innerText = title;
@@ -61,8 +66,6 @@ async function updateModalInfo(title, trailer_url, description, media_id, type) 
         console.log(stagioni);
         
         var titoli_e_id = [];
-
-        var episodi = [];
 
         stagioni.forEach((stagione, index) => {
             var titolo = `${stagione.nome} (${stagione.n_episodi})`;
@@ -121,6 +124,9 @@ async function updateModalInfo(title, trailer_url, description, media_id, type) 
             // Aggiungi l'elemento della stagione al contenitore delle stagioni
             modal_lista_ep_stag.appendChild(stagione_elem);
           });
+    } else {
+        // Pulisce l'interno dell'html del container prima di metterci le nuove informazioni, altrimenti rimarranno quelle vecchie
+        modal_lista_ep_stag.innerHTML = "";
     }
 }
 
