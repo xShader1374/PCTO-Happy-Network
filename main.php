@@ -31,9 +31,9 @@
 	<!-- Vertically centered scrollable modal -->
 		<div id="mediaInspectorModal" class="modal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-                <div class="modal-content">
+                <div class="modal-content Body-Container">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modal-title">
+                        <h5 class="modal-title text-center text-secondary" id="modal-title">
                             Title
                         </h5>
                         <button type="button" 
@@ -43,14 +43,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-						<iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <p id="modal-description">
+						<iframe class="modal-iframe" id="modal-iframe" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p id="modal-description" class="modal-description">
                             Description
                         </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" 
-                                class="btn btn-secondary" 
+                                class="btn Navbar-Button" 
                                 data-bs-dismiss="modal">
                             Back
                         </button>

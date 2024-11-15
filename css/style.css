@@ -21,6 +21,14 @@ body {
     flex-direction: column;
 }
 
+.text-main {
+    color: var(--main-color);
+}
+
+.text-secondary {
+    color: var(--text-color) !important;
+}
+
 .Navbar-Container {
     border-color: var(--main-color);
     background-color: #2892b63b;
@@ -199,4 +207,25 @@ body {
     text-overflow: ellipsis;
     max-width: fit-content;
     margin: 8px;
+}
+
+
+.modal-title {
+    width: -webkit-fill-available;
+    font-size: xx-large;
+}
+
+.modal-description {
+    font-size: large;
+}
+
+.modal-iframe {
+    border-radius: 12px;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    min-height: 50vh;
+}
+
+.modal-footer>* {
+    width: -webkit-fill-available;
 }

@@ -1,30 +1,14 @@
-var opened = false;
+let modal_title = document.getElementById('modal-title');
+let modal_trailer = document.getElementById('modal-iframe');
+let modal_description = document.getElementById('modal-description');
 
-let modal = new bootstrap.Modal(document.getElementById('mediaInspectorModal'));
-var modal_title = document.getElementById('modal-title');
-var modal_trailer = document.getElementById('media-trailer-url');
-var modal_description = document.getElementById('modal-description');
+// cambiare url iframe, cambiare titolo, cambiare description
 
-// cambiare url iframe, cambiare titolo, cambiare description, cambiare
-
-function showModal() {
-    opened = true;
-    modal.show();
-}
-
-function hideModal() {
-    opened = false;
-    modal.hide();
-}
-
-function updateModalInfo(params) {
-    
-}
-
-function showOrHideModal(id) {
-    if (!opened){
-        showModal()
-    } else {
-        hideModal()
-    }
+function updateModalInfo(title, trailer_url, description) {
+    console.log(title);
+    console.log(trailer_url);
+    console.log(description);
+    modal_title.innerText = title;
+    modal_description.innerText = description;
+    modal_trailer.setAttribute("src", trailer_url);
 }
